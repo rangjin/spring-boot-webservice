@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
+// Entity 클래스를 Request/Response 클래스로 사용해서는 안 됨
 public class Posts {
 
     @Id
