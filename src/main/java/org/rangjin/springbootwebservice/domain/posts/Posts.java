@@ -34,4 +34,10 @@ public class Posts {
         this.author = author;
     }
 
+    // 비즈니스 로직은 도메인 계층에서 처리
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
+
 }
