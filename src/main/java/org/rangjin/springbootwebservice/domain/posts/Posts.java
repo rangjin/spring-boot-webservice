@@ -3,6 +3,7 @@ package org.rangjin.springbootwebservice.domain.posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.rangjin.springbootwebservice.domain.BaseTimeEntity;
 
 import javax.persistence.*;
 
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 // Entity 클래스를 Request/Response 클래스로 사용해서는 안 됨
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id
     // 스프링 부트 2.0 버전은 IDENTITY 옵션을 추가해야만 auto_increment 가능
