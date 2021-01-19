@@ -17,7 +17,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.net.http.HttpResponse;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -56,7 +55,10 @@ public class PostsApiControllerTest {
         String url = "http://localhost:" + port + "/api/v1/posts";
 
         // when
+        // 아래 주석 처리된 두 문장과 같음
         ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
+        // HttpEntity<PostsSaveRequestDto> requestEntity = new HttpEntity<>(requestDto);
+        // ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, Long.class);
 
         // then
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
