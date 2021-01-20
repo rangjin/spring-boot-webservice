@@ -46,4 +46,5 @@ dependencies {
     // 메모리에서 실행되므로 애플리케이션을 실행할 때마다 초기화 됨 -> 테스트 용도로 많이 사용
     compile('com.h2database:h2')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.security:spring-security-test')
 }
