@@ -21,7 +21,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group 'org.rangjin'
 version '1.0-SNAPSHOT'
-sourceCompatibility = 11
+sourceCompatibility = 8
 
 // 각종 의존성 라이브러리들을 어떤 원격 저장소에서 받을지 설정
 repositories {
