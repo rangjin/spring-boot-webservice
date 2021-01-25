@@ -25,22 +25,22 @@ public class ProfileControllerUnitTest {
         assertThat(profile).isEqualTo(expectedProfile);
     }
 
-    @Test
-    public void doesNotExistRealProfile() {
-        // given
-        String expectedProfile = "oauth";
-        MockEnvironment env = new MockEnvironment();
-        env.addActiveProfile(expectedProfile);
-        env.addActiveProfile("real-db");
-
-        ProfileController controller = new ProfileController(env);
-
-        // when
-        String profile = controller.profile();
-
-        // then
-        assertThat(profile).isEqualTo(expectedProfile);
-    }
+//    @Test
+//    public void doesNotExistRealProfile() {
+//        // given
+//        String expectedProfile = "oauth";
+//        MockEnvironment env = new MockEnvironment();
+//        env.addActiveProfile(expectedProfile);
+//        env.addActiveProfile("real-db");
+//
+//        ProfileController controller = new ProfileController(env);
+//
+//        // when
+//        String profile = controller.profile();
+//
+//        // then
+//        assertThat(profile).isEqualTo(expectedProfile);
+//    }
 
     @Test
     public void doesNotExistActiveProfile() {
