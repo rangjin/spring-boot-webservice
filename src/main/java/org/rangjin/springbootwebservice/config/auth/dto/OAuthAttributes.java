@@ -35,6 +35,8 @@ public class OAuthAttributes {
         if (registrationId.equals("naver")) {
             // registrationId = "naver", userNameAttributeName = "response"
             return ofNaver("id", attributes);
+        } else if (registrationId.equals("kakao")) {
+            return ofKakao("id", attributes);
         }
 
         // registrationId = "google", userNameAttributeName = "sub"
@@ -47,6 +49,19 @@ public class OAuthAttributes {
                 .email((String) attributes.get("email"))
                 .picture((String) attributes.get("picture"))
                 .attributes(attributes)
+                .nameAttributeKey(userNameAttributeName)
+                .build();
+    }
+
+    private static OAuthAttributes ofKakao(String userNameAttributeName, Map<String, Object> attributes) {
+        Map<String, Object> response = (Map<String, Object>) attributes.get("kakao_account");
+        response.put("id", attributes.get("id"));
+        Map<String, Object> profile = (Map<String, Object>) response.get("profile");
+
+        return OAuthAttributes.builder()
+                .name((String) profile.get("nickname"))
+                .email((String) response.get("email"))
+                .attributes(response)
                 .nameAttributeKey(userNameAttributeName)
                 .build();
     }
@@ -73,6 +88,26 @@ public class OAuthAttributes {
     }
 
 }
+
+//Kakao
+//OAuthAttributes(
+//    attributes={
+//        id=1608105085,
+//        profile_needs_agreement=false,
+//        profile={
+//            nickname=상진
+//        },
+//        has_email=true,
+//        email_needs_agreement=false,
+//        is_email_valid=true,
+//        is_email_verified=true,
+//        email=heathaze2037@naver.com
+//    },
+//    nameAttributeKey=id,
+//    name=상진,
+//    email=heathaze2037@naver.com,
+//    picture=null
+//)
 
 //google
 //OAuthAttributes(
